@@ -54,6 +54,8 @@ class CapchaTest extends PHPUnit_Framework_TestCase {
 		$this->assertEquals($expected, $result);
 	}
 	
+
+	
 	/*function testGetRandomOperator() {
 		$expected = array('+', '*');
 		$capcha = new Capcha();
