@@ -23,13 +23,10 @@ require 'Random.php';
 		}
 		
 		function testRandomPattern() {
-			$stub = $this->getMock('Random');
-			
-			$stub->expects($this->any())
-				 ->method('getRandomPattern')
-				 ->will($this->returnValue('TextNumberAndNumber'));
-			
-			$this->assertEquals('TextNumberAndNumber', $stub->getRandomPattern());
+			$random = new Random();
+			$expectedRange = array("NumberAndTexNumber", "TextNumberAndNumber");
+			$result = $random->getRandomPattern();
+			$this->assertContains($result, $expectedRange);
 		}
 	}
 ?>

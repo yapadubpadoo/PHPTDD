@@ -18,6 +18,9 @@ class Random {
 	}
 	
 	function getRandomPattern() {
+		$pattern = array("NumberAndTexNumber", "TextNumberAndNumber");
+		$index = rand(0,1);
+		return $pattern[$index];
 	}
 }
 ?>
