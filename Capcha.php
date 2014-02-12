@@ -40,5 +40,12 @@ class Capcha {
 		
 		return $expression." = ".$result;
 	}
+	
+	function getCapchaArray() {
+		return split(" ",$this->getCapcha()); 
+	}
+	
+	function getRandomOperator() {
+	}
 }
 ?>
