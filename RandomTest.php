@@ -1,15 +1,7 @@
 <?php
 require 'Random.php';
 	class RandomTest extends PHPUnit_Framework_TestCase {
-		function testRandomNumber() {
-			/*$stub = $this->getMock('Random');
-			
-			$stub->expects($this->any())
-				 ->method('getRandomNumber')
-				 ->will($this->returnValue(1));
-			
-			$this->assertEquals(1, $stub->getRandomNumber());*/
-			
+		function testRandomNumber() {			
 			$random = new Random();
 			$expectedRange = array(1,2,3,4,5,6,7,8,9);
 			$result = $random->getRandomNumber();
@@ -17,23 +9,17 @@ require 'Random.php';
 		}
 		
 		function testRandomTextNumber() {
-			$stub = $this->getMock('Random');
-			
-			$stub->expects($this->any())
-				 ->method('getRandomTextNumber')
-				 ->will($this->returnValue("One"));
-			
-			$this->assertEquals("One", $stub->getRandomTextNumber());
+			$random = new Random();
+			$expectedRange = array("One", "Two", "Three", "Four", "Five","Six","Seven","Eight","Nine");
+			$result = $random->getRandomTextNumber();
+			$this->assertContains($result, $expectedRange);
 		}
 		
 		function testRandomOperator() {
-			$stub = $this->getMock('Random');
-			
-			$stub->expects($this->any())
-				 ->method('getRandomOperator')
-				 ->will($this->returnValue("+"));
-			
-			$this->assertEquals("+", $stub->getRandomOperator());
+			$random = new Random();
+			$expectedRange = array("+", "*");
+			$result = $random->getRandomOperator();
+			$this->assertContains($result, $expectedRange);
 		}
 		
 		function testRandomPattern() {
