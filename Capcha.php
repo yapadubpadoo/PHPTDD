@@ -1,5 +1,18 @@
 <?php
 class Capcha {
+	
+	function setRandom($random) {
+		$this->setOperator($random->getRandomOperator());
+		if ($random->getRandomPattern()=="NumberAndTexNumber") {
+			$this->setFirstOperand($random->getRandomNumber());
+			$this->setSecondOperand($random->getRandomTextNumber());
+		}
+		else {
+			$this->setFirstOperand($random->getRandomTextNumber());
+			$this->setSecondOperand($random->getRandomNumber());
+		}
+	}
+	
 	function setFirstOperand($operand) {
 		$this->first = $operand;
 	}

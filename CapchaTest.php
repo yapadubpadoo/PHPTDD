@@ -1,5 +1,6 @@
 <?php
 require_once "Capcha.php";
+require_once "Random.php";
 class CapchaTest extends PHPUnit_Framework_TestCase {
 
 	function testGetCapchaThreeNumberPlusFiveText() {
@@ -51,6 +52,34 @@ class CapchaTest extends PHPUnit_Framework_TestCase {
 		$capcha->setSecondOperand("2");
 		$capcha->setOperator("+");
 		$result = $capcha->getCapchaArray();
+		$this->assertEquals($expected, $result);
+	}
+	
+	function testGetRandomCaphaArrayFourTextPlusTwoNumber() {
+		$expected = array("Four", "+",  "2", "=","6");
+		$capcha = new Capcha();
+		$stub = $this->getMock('Random');
+		
+		$stub->expects($this->any())
+			 ->method('getRandomPattern')
+			 ->will($this->returnValue('TextNumberAndNumber'));
+			 
+		$stub->expects($this->any())
+			 ->method('getRandomTextNumber')
+			 ->will($this->returnValue('Four'));
+		
+		$stub->expects($this->any())
+			 ->method('getRandomNumber')
+			 ->will($this->returnValue('2'));
+		
+		$stub->expects($this->any())
+			 ->method('getRandomOperator')
+			 ->will($this->returnValue('+'));
+		
+		$capcha->setRandom($stub);
+		
+		$result = $capcha->getCapchaArray();
+		
 		$this->assertEquals($expected, $result);
 	}
 	
