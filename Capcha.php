@@ -57,8 +57,5 @@ class Capcha {
 	function getCapchaArray() {
 		return split(" ",$this->getCapcha()); 
 	}
-	
-	function getRandomOperator() {
-	}
 }
 ?>

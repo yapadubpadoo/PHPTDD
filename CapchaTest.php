@@ -60,19 +60,19 @@ class CapchaTest extends PHPUnit_Framework_TestCase {
 		$capcha = new Capcha();
 		$stub = $this->getMock('Random');
 		
-		$stub->expects($this->any())
+		$stub->expects($this->once())
 			 ->method('getRandomPattern')
 			 ->will($this->returnValue('TextNumberAndNumber'));
 			 
-		$stub->expects($this->any())
+		$stub->expects($this->once())
 			 ->method('getRandomTextNumber')
 			 ->will($this->returnValue('Four'));
 		
-		$stub->expects($this->any())
+		$stub->expects($this->once())
 			 ->method('getRandomNumber')
 			 ->will($this->returnValue('2'));
 		
-		$stub->expects($this->any())
+		$stub->expects($this->once())
 			 ->method('getRandomOperator')
 			 ->will($this->returnValue('+'));
 		
