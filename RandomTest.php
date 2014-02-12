@@ -2,13 +2,18 @@
 require 'Random.php';
 	class RandomTest extends PHPUnit_Framework_TestCase {
 		function testRandomNumber() {
-			$stub = $this->getMock('Random');
+			/*$stub = $this->getMock('Random');
 			
 			$stub->expects($this->any())
 				 ->method('getRandomNumber')
 				 ->will($this->returnValue(1));
 			
-			$this->assertEquals(1, $stub->getRandomNumber());
+			$this->assertEquals(1, $stub->getRandomNumber());*/
+			
+			$random = new Random();
+			$expectedRange = array(1,2,3,4,5,6,7,8,9);
+			$result = $random->getRandomNumber();
+			$this->assertContains($result, $expectedRange);
 		}
 		
 		function testRandomTextNumber() {
