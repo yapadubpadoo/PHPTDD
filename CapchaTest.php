@@ -58,6 +58,7 @@ class CapchaTest extends PHPUnit_Framework_TestCase {
 	function testGetRandomCaphaArrayFourTextPlusTwoNumber() {
 		$expected = array("Four", "+",  "2", "=","6");
 		$capcha = new Capcha();
+		
 		$stub = $this->getMock('Random');
 		
 		$stub->expects($this->once())

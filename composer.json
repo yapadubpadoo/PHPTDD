@@ -1,5 +1,6 @@
 {
 	"require": {
-		"phpunit/phpunit" : "3.7.31"
+		"phpunit/phpunit" : "3.7.31",
+		"phalcon/devtools": "dev-master"
 	}
 }
