@@ -30,5 +30,15 @@ require 'Random.php';
 			
 			$this->assertEquals("+", $stub->getRandomOperator());
 		}
+		
+		function testRandomPattern() {
+			$stub = $this->getMock('Random');
+			
+			$stub->expects($this->any())
+				 ->method('getRandomPattern')
+				 ->will($this->returnValue('TextNumberAndNumber'));
+			
+			$this->assertEquals('TextNumberAndNumber', $stub->getRandomPattern());
+		}
 	}
 ?>
